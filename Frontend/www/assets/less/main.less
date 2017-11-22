@@ -1,3 +1,257 @@
-@mainColor: blue;
-
+@mainColor:orange;
+@smallText:darkgrey;
+@darkMain:darkorange;
 @import "pizza/pizza-card";
+  img {
+    max-width: 250px;
+  }
+
+  h3 {
+    color: @mainColor;
+  }
+
+
+
+.navbar{
+    z-index: 50;
+    margin:0;
+    padding-right:350px;
+    padding-left:110px;
+}
+
+
+
+.container-fluid{
+    padding-right:345px;
+    padding-top:100px;
+    min-width:600px;
+    background-color:#fffff5;
+    
+}
+
+
+#cart{
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    width:330px;
+    height:100%;
+    background-color:#F5F5F5;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.left{
+    max-width:1000px;
+    margin:auto;
+    
+}
+.in-pizza{
+    text-align: center;
+    .num{
+        font-size: 35px;
+        margin-bottom:0;
+    }
+}
+.col-md-6{
+    .glyphicon{
+    display:block;
+    padding:10px;
+}
+}
+.new-order{
+    height:150px;
+    border-bottom: 0.5px solid grey;
+.glyphicon{
+    padding:10px;
+}
+            img{
+            max-width: 100px;
+                float:right;
+        }
+
+    .btn{
+        p{
+            display:inline;
+        }
+
+        height:40px;
+        width:40px;
+        padding-left:10px;
+        border-radius: 40px;
+        i{
+            top:-5px;
+            left:-7px;
+        }
+    }
+}
+
+.small-text{
+    font-size:12px;
+    color:@smallText;
+    display: inline-block;
+}
+.header{
+    text-align: center;
+}
+.pizza-count{
+    display:inline-block;
+    width:25px;
+    height:25px;
+    font-size:20px;
+    color:white;
+        background-color:@mainColor;
+        border-radius:50%;
+}
+.pizza-types{
+    text-align:center;
+    padding:15px;
+    .pizzaT{
+        display:inline-block;
+        padding-left:15px;
+        padding-right:15px;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    .all-pizzas{
+        color:white;
+        background-color:@mainColor;
+        border-radius:10px;
+    }
+}
+.order-header{
+    height:80px;
+    background-color:white;
+    .zamovlenia{
+        padding:15px;
+        padding-top:25px;
+    display:inline-block;
+    font-weight:bold;
+    font-size:20px;
+}
+.count2{
+    margin:15px;
+    margin-left:0;
+    padding-left:5px;
+}
+    .wipe{
+        font-size:10px;
+    }
+}
+.order-footer{
+    position:absolute;
+    width:330px;
+    bottom:0;
+    height:100px;
+    background-color:white;
+    .s1{
+        font-size:15px;
+        font-weight: bold;
+        float:left;
+        padding:5px;
+    }
+    .s2{
+        font-size:20px;
+        font-weight: bold;
+        float:right;
+        padding:5px;
+    }
+    .big-btn{
+        display:inline-block;
+        padding:40px;
+        padding-top:10px;
+            padding-bottom:30px;
+    .btn{
+        width:250px;
+        height:40px;
+        font-size:17px;
+        vertical-align:middle;
+    }
+    }
+}
+
+.top-row{
+    display:inline-block;
+
+    width:100%;
+    border-bottom: 3px solid @smallText;
+    color:@smallText;
+    
+    div{
+        padding-top:10px;
+        padding-left:20px;
+    }
+    .phone-number{
+        display:inline-block;
+        font-size:20px;
+    }
+    
+
+}
+.bottom-row{
+        color:@smallText;
+    width:100%;
+    margin:auto;
+    a{
+        padding:7px;
+        font-size:20px;
+        color:white;
+    }
+
+}
+    .label{
+        left:10px;
+        z-index: 75;
+        position:fixed;
+        width:80px;
+        height:90px;
+        color:white;
+        background-color:@darkMain;
+        font-size:20px;
+        text-align: center;
+
+        
+
+
+    }
+.label-top{
+    top:0;
+            border-radius: 0;
+        border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            span{
+            padding-bottom:7px;
+                        padding-top:7px;
+            display:block;
+            top:20px;
+        }
+}
+.label-bottom{
+    height:120px;
+    width:100px;
+    bottom:0;
+                border-radius: 0;
+        border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+    font-size:17px;
+    p{
+        white-space: normal;
+                    padding-bottom:7px;
+                        padding-top:7px;
+    }
+    #p1{
+        border-bottom: 2px solid #d16301;
+    }
+    
+}
+
+.btn-top{
+    margin-top:5px;
+    float:right;
+}
+
+
+
+
+
+
