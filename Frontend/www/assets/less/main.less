@@ -115,8 +115,7 @@
     }
     .all-pizzas{
         color:white;
-        background-color:@mainColor;
-        border-radius:10px;
+        background-color:orange;
     }
 }
 .order-header{
@@ -155,6 +154,7 @@
         font-weight: bold;
         float:right;
         padding:5px;
+        left:0;
     }
     .big-btn{
         display:inline-block;
@@ -199,22 +199,26 @@
     }
 
 }
-    .label{
-        left:10px;
+
+.label{
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:20px;
+}
+
+.label-top{
+            left:10px;
         z-index: 75;
         position:fixed;
         width:80px;
         height:90px;
-        color:white;
+    a{
+        color:white!important;
+    }
         background-color:@darkMain;
         font-size:20px;
         text-align: center;
-
-        
-
-
-    }
-.label-top{
     top:0;
             border-radius: 0;
         border-bottom-left-radius: 10px;
@@ -226,14 +230,24 @@
             top:20px;
         }
 }
+
 .label-bottom{
+            left:10px;
+        z-index: 75;
+        position:fixed;
+        width:80px;
+        height:90px;
+        color:white;
+        background-color:@darkMain;
+        font-size:20px;
+        text-align: center;
     height:120px;
     width:100px;
     bottom:0;
                 border-radius: 0;
         border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
-    font-size:17px;
+    font-size:15px;
     p{
         white-space: normal;
                     padding-bottom:7px;
@@ -248,6 +262,17 @@
 .btn-top{
     margin-top:5px;
     float:right;
+}
+.col-md-6{
+    padding:15px;
+    position:relative;
+}
+.pizza-label{
+    position:absolute;
+}
+.pizzaT{
+    border-radius:10px;
+    color:#ec890e;
 }
 
 
