@@ -3,6 +3,7 @@
  */
 var Templates = require('../Templates');
 var Storage	=require('../storage/storage');
+var API = require("../API");
 
 //Перелік розмірів піци
 var PizzaSize = {
@@ -117,6 +118,7 @@ function updateCart() {
     if(Cart.length>0) {
         $(".big-btn").find(".btn").prop("disabled", false);
         $(".wipe").prop("disabled",false);
+        $(".big-btn").find(".firstBtn").attr("onclick", "window.location.href='/order.html'");
     }
     else {
         $(".big-btn").find(".btn").prop("disabled", true);
@@ -127,6 +129,106 @@ function updateCart() {
     Storage.set("cart",	Cart);
 
 }
+
+$(".order").attr("disabled", true);
+var phonev=false;
+var namev=false;
+var adrv=false;
+    function validateName() {
+        var name = $("#inputName").val();
+        if(name) {
+            if (!name.match(/^([a-zA-Zа-яА-Я]+|[ ]|[\-])+$/)) {
+                $(".name-danger").css("display", "block");
+                $(".order").attr("disabled", true);
+                namev=false;
+                return false;
+            } else {
+                $(".name-danger").css("display", "none");
+                namev=true;
+                return true;
+            }
+        }
+    }
+
+    function validatePhone() {
+        var tel = $("#inputPhone").val();
+
+        if (tel.match(/^(\+380|0)\d{9}$/)) {
+                $(".tel-danger").css("display", "none");
+                phonev=true;
+                return true;
+            } else {
+                $(".tel-danger").css("display", "block");
+                $(".order").prop("disabled", true);
+                phonev=false;
+                return false;
+            }
+
+    }
+
+    function validateAddress() {
+        var adr = $("#inputAddress").val();
+        if (adr.length>1) {
+            $(".adr-danger").css("display", "none");
+            adrv=true;
+            return true;
+        } else {
+            $(".adr-danger").css("display", "block");
+            $(".order").prop("disabled", true);
+            adrv=false;
+            return false;
+        }
+    }
+
+        $(".container-fluid").find("#inputPhone").on("input", function () {
+            validatePhone();
+            if(namev && adrv && phonev){
+                $(".order").attr("disabled", false);
+            }else{
+                $(".order").attr("disabled", true);
+            }
+
+        });
+$(".container-fluid").find("#inputAddress").on("input", function () {
+            validateAddress();
+    if(namev && adrv && phonev){
+        $(".order").attr("disabled", false);
+    }else{
+        $(".order").attr("disabled", true);
+    }
+        });
+$(".container-fluid").find("#inputName").on("input", function () {
+            validateName();
+            if(namev && adrv && phonev){
+                $(".order").attr("disabled", false);
+            }else{
+                $(".order").attr("disabled", true);
+            }
+        });
+$(".order").click(function(){
+    var order = [];
+    Cart.forEach(function (pizza_cart) {
+        order.push([pizza_cart.pizza.title, pizza_cart.size, pizza_cart.quantity]);
+    });
+    var body = {
+        order: order,
+        name: $("#inputName").val(),
+        address: $("#inputAddress").val(),
+        phone: $("#inputPhone").val(),
+        price: $(".s2").text()
+    };
+    API.createOrder(body, function (err, data) {
+        if(err)
+            alert("Failed!");
+
+        else
+            alert("Your order was successfull!");
+    });
+
+});
+
+
+
 
 exports.removeFromCart = removeFromCart;
 exports.addToCart = addToCart;

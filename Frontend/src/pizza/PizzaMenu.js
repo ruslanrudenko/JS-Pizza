@@ -3,7 +3,8 @@
  */
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
-var Pizza_List = require('../Pizza_List');
+var Pizza_List = {};
+var API = require('../API');
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $(".left");
@@ -48,32 +49,32 @@ function filterPizza(filter) {
         switch(filter){
             case 1:
                 pizza_shown.push(pizza);
-                $(".a").text("Усі піци");
+                $(".header").find(".a").text("Усі піци");
                 break;
             case 2:
                 if(pizza.content.meat)
                     pizza_shown.push(pizza);
-                $(".a").text("М'ясні піци");
+                $(".header").find(".a").text("М'ясні піци");
                 break;
             case 3:
                 if(pizza.content.pineapple)
                     pizza_shown.push(pizza);
-                $(".a").text("З ананасами");
+                $(".header").find(".a").text("З ананасами");
                 break;
             case 4:
                 if(pizza.content.mushroom)
                     pizza_shown.push(pizza);
-                $(".a").text("З грибами");
+                $(".header").find(".a").text("З грибами");
                 break;
             case 5:
                 if(pizza.content.ocean)
                     pizza_shown.push(pizza);
-                $(".a").text("З морепродуктами");
+                $(".header").find(".a").text("З морепродуктами");
                 break;
             case 6:
                 if(pizza.type === 'Вега піца')
                     pizza_shown.push(pizza);
-                $(".a").text("Вега піци");
+                $(".header").find(".a").text("Вега піци");
                 break;
             default:
                 break;
@@ -88,7 +89,14 @@ function filterPizza(filter) {
 
 function initialiseMenu() {
     //Показуємо усі піци
-    showPizzaList(Pizza_List);
+    API.getPizzaList(function (err, data) {
+        if(err)
+            alert("Failed to load pizzas from server!");
+        else {
+            Pizza_List = data;
+            showPizzaList(Pizza_List);
+        }
+    });
 }
 
 exports.filterPizza = filterPizza;

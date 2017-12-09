@@ -1,0 +1,22 @@
+<% include common/header.ejs %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="form-group name"><span class="text col-sm-2">Ім'я</span><div class="col-sm-9"><input class="form-control" type="text" id="inputName" placeholder="Ім’я Фамілія"></div></div>
+        <p class="name-danger">Ім'я не повинно містити чисел</p>
+        <div class="form-group tel"><span class="text col-sm-2">Телефон</span><div class="col-sm-9"><input class="form-control" type="text" id="inputPhone" placeholder="+380994010999"></div></div>
+        <p class="tel-danger">Введіть телефон формату +380..</p>
+        <div class="form-group adr"><span class="text col-sm-2">Адреса</span><div class="col-sm-9"><input class="form-control" type="text" id="inputAddress" placeholder="Київ, вул. Спаська, 2"></div></div>
+        <p class="adr-danger">Введіть адресу</p>
+
+    </div>
+    <button class="order btn btn-warning buy-btn-small">Замовити</button>
+</div>
+
+<div id="cart">
+    <div class="order-header"><span class="zamovlenia">Замовлення</span><span class="pizza-count count2">1</span></div>
+    <div class="cart-container orderCart"></div>
+    <div class="order-footer">
+        <div class="order-text"><span class="s1">Сума замовлення</span><span class="s2">99 грн.</span></div><div class="big-btn"><button href="#" class="btn btn-warning buy-btn-small orderButton"onclick="window.location.href='/'">Редагувати</button></div></div>
+
+</div>
+<% include common/footer.ejs %>
